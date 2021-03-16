@@ -1,3 +1,15 @@
+:root {
+    --input-linear: linear-gradient(120deg, #4169E1, #00FFFF);
+    --button-linear: linear-gradient(120deg, #4169E1, #00FFFF, #4169E1);
+    --white: #fff;
+    --black-title: rgba(10, 9, 9, 0.89);
+    --gray: #757575;
+    --gray-border: #b4b4b4;
+    --border-height: 1px;
+    --transition-linear: .3s ease-in-out;
+    --width-full: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -6,7 +18,7 @@ body {
 
 .login {
     height: 100vh;
-    background: linear-gradient(120deg, #008080, #00BFFF) ;
+    background: var(--input-linear);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +27,7 @@ body {
 .login_container {
     min-height: 400px;
     width: 300px;
-    background-color: aliceblue;
+    background-color: var(--white);
     box-sizing: border-box;
     padding: 32px;
     border-radius: 18px;
@@ -26,11 +38,11 @@ body {
 
 .login_title {
     margin-bottom: 32px;
-    color: rgba(65, 61, 61, 0.89);
+    color: var(--black-title);
 }
 
 .login_form {
-    width: 100%;
+    width: var(--width-full);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +51,7 @@ body {
 
 .login_input {
     height: 40px;
-    width: 100%;
+    width: var(--width-full);
     box-sizing: border-box;
     padding-left: 8px;
     border: unset;
@@ -47,31 +59,35 @@ body {
 }
 
 .login_input_border {
-    height: 1px;
-    width: 100%;
+    height: var(--border-height);
+    width: var(--width-full);
     margin-bottom: 16px;
-    background-color: #cfcfcf;
-    transition: .3s ease-in-out;
+    background-color: var(--gray-border);
+    transition: var(--transition-linear);
 }
 
 .login_input_border::after {
     content: '';
     display: block;
-    height: 1px;
+    height: var(--border-height);
     width: 0;
     margin-bottom: 16px;
-    background: linear-gradient(120deg, #008080, #00BFFF);
-    transition: .3s ease-in-out;
+    background: var(--input-linear);
+    transition:  var(--transition-linear);
+}
+
+.login_input:focus + .login_input_border::after {
+    width: var(--width-full);
 }
 
 .login_submit {
     height: 48px;
-    width: 100%;
+    width: var(--width-full);
     outline: none;
-    background: linear-gradient(120deg, #008080, #00BFFF, #008080);
+    background: var(--button-linear);
     background-size: 200%;
     margin-bottom: 32px;
-    color: white;
+    color: var(--white);
     font-size: 14px;
     font-weight: bold;
     border: unset;
@@ -80,8 +96,12 @@ body {
     transition: .5s ease-in-out;
 }
 
+.login_submit:hover {
+    background-position: right;
+}
+
 .login_resert {
     font-size: 12px;
-    color: #757575;
+    color: var(--gray);
     text-decoration: none;
 }
